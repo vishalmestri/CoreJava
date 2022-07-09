@@ -1,24 +1,27 @@
-package com.vishal.hashset;
+package com.vishal.treeset;
 
 import java.util.HashSet;
+import java.util.TreeSet;
 import java.util.logging.Logger;
 
-public class HashSetDemo {
+public class TreeSetDemo {
 
 	
-	private static Logger logger=Logger.getLogger(HashSetDemo.class.toString());
+	private static Logger logger=Logger.getLogger(TreeSetDemo.class.toString());
 	public static void main(String[] args) {
 		
+		TreeSet<EmpPojoWithoutComparable> set=new TreeSet<EmpPojoWithoutComparable>();
+		try {
 		logger.info("1=====================================================================");
-		EmpPojoWithoutHashCodeEquals emp1=new EmpPojoWithoutHashCodeEquals("Vishal", 39, "male");
-		EmpPojoWithoutHashCodeEquals emp2=new EmpPojoWithoutHashCodeEquals("Vishal", 39, "male");
-		EmpPojoWithoutHashCodeEquals emp3=new EmpPojoWithoutHashCodeEquals("Vishal", 38, "male");
+		EmpPojoWithoutComparable emp1=new EmpPojoWithoutComparable("Vishal", 39, "male");
+		EmpPojoWithoutComparable emp2=new EmpPojoWithoutComparable("Vishal", 39, "male");
+		EmpPojoWithoutComparable emp3=new EmpPojoWithoutComparable("Vishal", 38, "male");
 		
 		logger.info("emp1="+emp1);
 		logger.info("emp2="+emp2);
 		logger.info("emp3="+emp3);
 		
-		HashSet<EmpPojoWithoutHashCodeEquals> set=new HashSet<EmpPojoWithoutHashCodeEquals>();
+		
 		
 		logger.info("-----------------------");
 		logger.info("Before adding emp1");
@@ -31,20 +34,25 @@ public class HashSetDemo {
 		set.add(emp3);
 		logger.info("After adding emp3");
 		logger.info("-----------------------");
+		
+		
+		}catch (Exception e) {
+			logger.info(e.getMessage());
+		}
 		logger.info("CONTENTS OF SET|"+set);
 		logger.info("SIZE OF SET="+set.size());
 		logger.info("2=====================================================================");
 		
 		
-		EmpPojoWithHashCodeEquals emp11=new EmpPojoWithHashCodeEquals("Vishal", 39, "male");
-		EmpPojoWithHashCodeEquals emp22=new EmpPojoWithHashCodeEquals("Vishal", 39, "male");
-		EmpPojoWithHashCodeEquals emp33=new EmpPojoWithHashCodeEquals("Vishal", 38, "male");
+		EmpPojoWithComparable emp11=new EmpPojoWithComparable("Vishal", 39, "male");
+		EmpPojoWithComparable emp22=new EmpPojoWithComparable("Vishal", 39, "male");
+		EmpPojoWithComparable emp33=new EmpPojoWithComparable("Vishal", 38, "male");
 		
 		logger.info("emp11="+emp11);
 		logger.info("emp22="+emp22);
 		logger.info("emp33="+emp33);
 		
-		HashSet<EmpPojoWithHashCodeEquals> set1=new HashSet<EmpPojoWithHashCodeEquals>();
+		TreeSet<EmpPojoWithComparable> set1=new TreeSet<EmpPojoWithComparable>();
 		
 		logger.info("-----------------------");
 		logger.info("Before adding emp11");
