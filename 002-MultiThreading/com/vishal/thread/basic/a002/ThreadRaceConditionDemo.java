@@ -38,7 +38,7 @@ public class ThreadRaceConditionDemo {
 		System.out.println("-------------RACE CONDITION DEMO - END-------------------------------------");
 		
 		
-		System.out.println("-------------RACE CONDITION SOLVED WITH WAIT DEMO - START-------------------------------------");
+		System.out.println("-------------RACE CONDITION SOLVED WITH Synchronized DEMO - START-------------------------------------");
 		MyThreadWithoutRaceCondition tt[]=new MyThreadWithoutRaceCondition[threadCount];
 		
 		MyObject myObject1=new MyObject();
@@ -61,6 +61,6 @@ public class ThreadRaceConditionDemo {
 		}
 		System.out.println("After myObject var1="+myObject1.getVar1());
 		System.out.println("-----ABOVE VALUE IS "+threadCount+" ------------------------------------");
-		System.out.println("-------------RACE CONDITION SOLVED WITH WAIT - END-------------------------------------");
+		System.out.println("-------------RACE CONDITION SOLVED WITH Synchronized - END-------------------------------------");
 	}
 }
