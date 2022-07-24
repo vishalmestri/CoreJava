@@ -62,5 +62,36 @@ public class ThreadRaceConditionDemo {
 		System.out.println("After myObject var1="+myObject1.getVar1());
 		System.out.println("-----ABOVE VALUE IS "+threadCount+" ------------------------------------");
 		System.out.println("-------------RACE CONDITION SOLVED WITH Synchronized - END-------------------------------------");
+		
+		
+		
+		
+		
+		
+		
+		System.out.println("-------------RACE CONDITION NOT SOLVED WITH Volatie DEMO - START-------------------------------------");
+		MyThreadWithRaceConditionWithVolatile ttt[]=new MyThreadWithRaceConditionWithVolatile[threadCount];
+		
+		MyObjectWithVolatile myObject11=new MyObjectWithVolatile();
+		myObject11.setVar1(0);
+		
+		for(int i=0;i<threadCount;i++) {
+			ttt[i]=new MyThreadWithRaceConditionWithVolatile(myObject11);
+		}
+		
+		System.out.println("Before myObject var1="+myObject11.getVar1());
+		
+		for(MyThreadWithRaceConditionWithVolatile t2:ttt) {
+			t2.start();
+		}
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("After myObject var1="+myObject11.getVar1());
+		System.out.println("-----ABOVE VALUE IS "+threadCount+" ------------------------------------");
+		System.out.println("-------------RACE CONDITION NOT SOLVED WITH Volatie - END-------------------------------------");
 	}
 }

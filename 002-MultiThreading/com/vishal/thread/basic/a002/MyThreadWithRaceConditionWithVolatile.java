@@ -1,18 +1,18 @@
 package com.vishal.thread.basic.a002;
 
-public class MyThreadWithRaceCondition extends Thread {
+public class MyThreadWithRaceConditionWithVolatile extends Thread {
 	
-	private MyObject myObject;
+	private MyObjectWithVolatile myObject;
 	
 	
-	public MyThreadWithRaceCondition(MyObject myObject) {
+	public MyThreadWithRaceConditionWithVolatile(MyObjectWithVolatile myObject) {
 		super();
 		this.myObject = myObject;
 	}
 
 
 
-	public MyThreadWithRaceCondition() {
+	public MyThreadWithRaceConditionWithVolatile() {
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -24,19 +24,19 @@ public class MyThreadWithRaceCondition extends Thread {
 	//	super.run();
 				//String x=this.getName()+"Before var1="+this.myObject.getVar1()+" <> ";
 				this.myObject.setVar1(this.getMyObject().getVar1()+1);			
-			//	System.out.println(x+this.getName()+"After var1="+this.myObject.getVar1());
+				//System.out.println(x+this.getName()+"After var1="+this.myObject.getVar1());
 	
 	}
 
 
 
-	public MyObject getMyObject() {
+	public MyObjectWithVolatile getMyObject() {
 		return myObject;
 	}
 
 
 
-	public void setMyObject(MyObject myObject) {
+	public void setMyObject(MyObjectWithVolatile myObject) {
 		this.myObject = myObject;
 	}
 
